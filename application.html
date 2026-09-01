@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Заявка на Sber500xDisrupt — «Привычка как игра»</title>
 <meta name="description" content="Развёрнутые ответы по структуре анкеты Sber500xDisrupt: гипотеза, ЦА и боль, формат решения, конкурентное преимущество, план по восьми неделям, функции на LLM и команда.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='10'%20fill='%230B7A70'/%3E%3Cpath%20d='M6.5%2021.5%2012%2017l3%203.5L25.5%209.5'%20fill='none'%20stroke='%23fff'%20stroke-width='2.6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3Ccircle%20cx='15'%20cy='20.5'%20r='2.7'%20fill='%230B7A70'%20stroke='%23fff'%20stroke-width='1.7'/%3E%3Ccircle%20cx='25.5'%20cy='9.5'%20r='2.7'%20fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<!-- кадр ночной полосы стоит почти на первом экране: байты кладём в кэш заранее,
+     сам <img> остаётся lazy и рисуется мгновенно, когда доходит до вьюпорта -->
+<link rel="preload" as="image" fetchpriority="low" href="https://images.unsplash.com/photo-1772059409102-86d89782265b?w=1800&q=72&auto=format&fit=crop">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="habit.css">
 <script>
@@ -27,18 +32,19 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="index.html">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="22" height="22" rx="7" fill="var(--teal)"/>
-        <path d="M5 15.5 L9 11 L11.5 13.5" stroke="var(--on-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14 12.5 L19 6.5" stroke="var(--on-teal)" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.6 3.2"/>
-        <circle cx="19" cy="6.5" r="1.9" fill="var(--on-teal)"/>
+    <a class="brand" href="index.html" aria-label="Привычка как игра — на главную">
+      <svg class="logo-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="10" fill="var(--teal)"/>
+        <path d="M6.5 21.5 12 17l3 3.5L25.5 9.5" fill="none" stroke="var(--on-teal)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="15" cy="20.5" r="2.7" fill="var(--teal)" stroke="var(--on-teal)" stroke-width="1.7"/>
+        <circle cx="25.5" cy="9.5" r="2.7" fill="var(--on-teal)"/>
       </svg>
-      Привычка как игра
+      <span class="logo-word"><span>Привычка</span><span class="lw2">как игра</span></span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
       <a href="index.html">Продукт</a>
       <a href="index.html#prototype">Прототип</a>
+      <a href="index.html#screens">Экраны</a>
       <a href="#weeks">План</a>
       <a class="key" href="index.html">На главную</a>
       <button class="tbtn" id="theme" type="button" aria-label="Переключить тему">
@@ -111,6 +117,23 @@
   </div>
 </div>
 
+
+<!-- ================= НОЧНАЯ ПОЛОСА: ПОЗИЦИЯ ================= -->
+<section class="night night-quote" aria-label="Позиция продукта">
+  <div class="wrap nq-grid">
+    <div data-in="soft">
+      <blockquote>Заморозить серию умеют все. Спросить <b>почему</b> и пересобрать план — никто.</blockquote>
+      <p>Мы проверили пять трекеров по их собственным описаниям в сторах: Streaks, Finch, Loop, Way of Life, Habitica. Механику прощения пропуска решили все — и на этом остановились.</p>
+      <p>Ни один не спрашивает, что именно произошло в тот день, и ни один не меняет план под ответ. Разбор срыва мы делаем главной функцией продукта, а не смягчением штрафа. <a href="index.html#compare">Таблица сравнения — на главной</a>.</p>
+    </div>
+    <figure class="nq-ph" data-in="card">
+      <img src="https://images.unsplash.com/photo-1772059409102-86d89782265b?w=1100&q=72&auto=format&fit=crop"
+           alt="Окна офисного здания ночью, за столами ещё сидят люди" loading="lazy" decoding="async" width="1100" height="880">
+      <figcaption>21:40. Ещё не дома — и день уже пропущен</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section style="padding-top:56px">
   <div class="wrap narrow">
 
@@ -130,16 +153,47 @@
       <p class="q-label" data-in="soft">Раскройте суть идеи: для кого (ЦА), какая боль, в каком формате решение</p>
       <h2 data-in>Целевая аудитория</h2>
       <p data-in="soft">Студенты и молодые работающие 17–27 лет. Мы описываем не три сегмента, а три состояния одного и того же человека:</p>
-      <ul data-in="soft">
-        <li><b>Учёба.</b> Прогуливает пары, откладывает подготовку до последней ночи, к сессии подходит с нуля.</li>
-        <li><b>Привычка.</b> Хочет начать бегать, читать, ложиться вовремя, заниматься языком — начинает по понедельникам и бросает к среде.</li>
-        <li><b>Отказ от никотина.</b> Курит или парит, пробовал бросить, срывался.</li>
-      </ul>
+      <div class="modes aud" data-stagger="90">
+        <div class="mode-card" data-in="card">
+          <span class="mode-ph">
+            <img src="https://images.unsplash.com/photo-1764096534662-a194a348c4a0?w=900&q=70&auto=format&fit=crop"
+                 alt="Письменный стол с ноутбуком, книгами и бумагами поздним вечером" loading="lazy" decoding="async" width="900" height="600">
+          </span>
+          <div class="mode-body">
+            <h3>Учёба</h3>
+            <p>Прогуливает пары, откладывает подготовку до последней ночи, к сессии подходит с нуля.</p>
+          </div>
+        </div>
+        <div class="mode-card" data-in="card">
+          <span class="mode-ph">
+            <img src="https://images.unsplash.com/photo-1594882645126-14020914d58d?w=900&q=70&auto=format&fit=crop"
+                 alt="Бегунья на тропе на рассвете" loading="lazy" decoding="async" width="900" height="600">
+          </span>
+          <div class="mode-body">
+            <h3>Привычка</h3>
+            <p>Хочет начать бегать, читать, ложиться вовремя, заниматься языком — начинает по понедельникам и бросает к среде.</p>
+          </div>
+        </div>
+        <div class="mode-card" data-in="card">
+          <span class="mode-ph">
+            <img src="https://images.unsplash.com/photo-1636453891651-00862eca514a?w=900&q=70&auto=format&fit=crop"
+                 alt="Человек идёт по улице города" loading="lazy" decoding="async" width="900" height="600">
+          </span>
+          <div class="mode-body">
+            <h3>Отказ от никотина</h3>
+            <p>Курит или парит, пробовал бросить, срывался. Цена срыва здесь выше, чем в любой другой цели.</p>
+          </div>
+        </div>
+      </div>
       <p data-in="soft">Это одна аудитория и один механизм: намерение есть, а системы, которая доводит до результата, нет.</p>
 
       <h3 data-in="soft">Боль</h3>
       <p data-in="soft">Существующие трекеры фиксируют факт, но ничего не меняют. Часть из них обнуляет серию на первом же пропуске, часть научилась её спасать — у Streaks один пропуск не рвёт серию, Finch выдаёт бесплатные восстановления, Loop считает плавный балл вместо цепочки. Но все эти механики спасают <b>число</b>. Ни одна из них не спрашивает, почему не получилось, и не трогает план, который вчера уже не сработал. Человек уходит именно поэтому: приложение сообщило ему результат и не предложило другого способа действовать.</p>
       <p data-in="soft">Вторая половина боли — одиночество процесса. Внешний контроль работает, а его нет: никто не заметит, если сегодня не пойти на пару и не открыть учебник. Ответственность есть только перед собой, и она проигрывает усталости.</p>
+
+      <p class="pull" data-in="soft">Человек уходит не из-за числа на экране. Он уходит потому, что <b>после срыва ничего не изменилось</b>: завтра ему предложат тот же план, который вчера не сработал.</p>
+
+
 
       <h3 data-in="soft">Формат решения</h3>
       <p data-in="soft">Приложение с ИИ-ментором, который ведёт человека по конкретному режиму.</p>
@@ -167,6 +221,29 @@
     <div class="qa">
       <p class="q-label" data-in="soft">В чём ваше конкурентное преимущество</p>
       <h2 data-in>Пять причин, по которым это другой продукт</h2>
+
+      <div class="cmp-wrap" data-in="card" style="margin:6px 0 30px">
+        <table class="cmp">
+          <caption>Механики прощения взяты из описаний приложений в сторах и их собственной документации. Столбцы 2 и 3 — не про доброту к пользователю, а про то, меняется ли завтрашний день.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Приложение</th>
+              <th scope="col">Смягчает пропуск</th>
+              <th scope="col">Спрашивает, что произошло</th>
+              <th scope="col">Меняет план под ответ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Streaks<small>Правило двух дней</small></th><td data-l="Смягчает пропуск"><span class="mark yes">да</span></td><td data-l="Спрашивает, что произошло"><span class="mark no">нет</span></td><td data-l="Меняет план под ответ"><span class="mark no">нет</span></td></tr>
+            <tr><th scope="row">Finch<small>Восстановление серии</small></th><td data-l="Смягчает пропуск"><span class="mark yes">да</span></td><td data-l="Спрашивает, что произошло"><span class="mark no">нет</span></td><td data-l="Меняет план под ответ"><span class="mark no">нет</span></td></tr>
+            <tr><th scope="row">Loop<small>Плавный балл вместо цепочки</small></th><td data-l="Смягчает пропуск"><span class="mark yes">да</span></td><td data-l="Спрашивает, что произошло"><span class="mark no">нет</span></td><td data-l="Меняет план под ответ"><span class="mark no">нет</span></td></tr>
+            <tr><th scope="row">Way of Life<small>Пометка намеренного пропуска и поле заметки</small></th><td data-l="Смягчает пропуск"><span class="mark yes">да</span></td><td data-l="Спрашивает, что произошло"><span class="mark no">только поле для заметки</span></td><td data-l="Меняет план под ответ"><span class="mark no">нет</span></td></tr>
+            <tr><th scope="row">Habitica<small>Отдых в таверне</small></th><td data-l="Смягчает пропуск"><span class="mark yes">да</span></td><td data-l="Спрашивает, что произошло"><span class="mark no">нет</span></td><td data-l="Меняет план под ответ"><span class="mark no">нет</span></td></tr>
+            <tr class="us"><th scope="row">Привычка как игра<small>Разбор срыва — главная функция</small></th><td data-l="Смягчает пропуск"><span class="mark yes">да</span></td><td data-l="Спрашивает, что произошло"><span class="mark yes">вечерний разбор</span></td><td data-l="Меняет план под ответ"><span class="mark yes">план пересобирается</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
       <ul data-in="soft">
         <li><b>Мы работаем ровно там, где конкуренты сдаются.</b> Мы разобрали Habitica, Streaks, Way of Life, Finch, Loop, HabitNow и Done. Максимум, что предлагает лучший из них при срыве, — сохранить счётчик и дать поле для заметки. Ни один не задаёт вопрос о причине и ни один не перестраивает план. Мы строим продукт вокруг этого шага: срыв ожидается, разбирается и меняет план. Это не смягчение механики, а другой продукт.</li>
         <li><b>Режим вместо универсальности.</b> Все трекеры одинаково относятся к «пить воду» и «бросить курить», хотя это несопоставимые задачи с разными триггерами и разной ценой срыва. Специализированные приложения по отказу от курения, наоборот, не умеют ничего другого. Мы делаем несколько глубоких режимов внутри одного продукта — так пользователь не уходит, когда одна цель закрыта.</li>
@@ -181,6 +258,7 @@
       <p class="q-label" data-in="soft">План работ по неделям</p>
       <h2 data-in>Восемь недель до измеренного удержания после срыва</h2>
       <p data-in="soft">Состав: 4 человека. Клушин — разработка и продукт (капитан), Ярочкин — DS и ментор, Юров — разработка, Мамлеев — разработка и аналитика.</p>
+      <p class="pull" data-in="soft">Первые две недели уходят на то, чтобы понять момент отвала и собрать базовый цикл. Ментор — <b>третья неделя</b>: без работающего цикла разбирать нечего.</p>
 
       <div class="weeks" data-stagger="90">
         <div class="week" data-in="soft">
@@ -395,9 +473,29 @@
 
 <footer>
   <div class="wrap foot">
-    <p>«Привычка как игра» — заявка на Sber500xDisrupt, Трек 1. Гипотеза Сбера №10, направление Health &amp; Habits. Продукт не является медицинской услугой и не заменяет работу с профильным специалистом.</p>
+    <div class="fcol">
+      <svg class="foot-line" viewBox="0 0 212 22" width="212" height="22" aria-hidden="true">
+        <path class="fl-run" d="M2 15 H92"/>
+        <path class="fl-run" d="M104 18 L128 12"/>
+        <path class="fl-run" d="M136 10 L208 4"/>
+        <circle class="fl-mark" cx="98" cy="16.5" r="3.4"/>
+        <circle class="fl-end" cx="208" cy="4" r="3.2"/>
+      </svg>
+      <a class="foot-brand" href="index.html" aria-label="Привычка как игра — на главную">
+        <svg class="logo-mark" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="10" fill="var(--teal)"/>
+          <path d="M6.5 21.5 12 17l3 3.5L25.5 9.5" fill="none" stroke="var(--on-teal)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="15" cy="20.5" r="2.7" fill="var(--teal)" stroke="var(--on-teal)" stroke-width="1.7"/>
+          <circle cx="25.5" cy="9.5" r="2.7" fill="var(--on-teal)"/>
+        </svg>
+        <span class="logo-word"><span>Привычка</span><span class="lw2">как игра</span></span>
+      </a>
+      <p>Заявка на Sber500xDisrupt, Трек 1. Гипотеза Сбера №10, направление Health &amp; Habits. Капитан — Клушин Артём Алексеевич.</p>
+      <p class="disclaimer">Продукт не является медицинской услугой и не заменяет работу с профильным специалистом.</p>
+    </div>
     <div class="links">
       <a href="index.html">Продукт и прототип</a>
+      <a href="index.html#screens">Экраны приложения</a>
       <a href="https://github.com/arklual">github.com/arklual</a>
       <a href="https://github.com/yafufig">github.com/yafufig</a>
     </div>
