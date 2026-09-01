@@ -108,7 +108,7 @@
       Array.prototype.forEach.call(track.children, function (el) { el.classList.add('on'); });
       var typing = items.typing; if (typing) typing.classList.remove('on');
       var f0 = root.querySelector('.ph-foot'); if (f0) f0.classList.add('sent');
-      Array.prototype.forEach.call(beats, function (b) { b.classList.add('on'); });
+      Array.prototype.forEach.call(beats, function (b) { b.classList.add('on'); b.disabled = true; });
       if (rail) rail.style.transform = 'scaleY(1)';
       if (bar) bar.style.transform = 'scaleX(1)';
       var ctl = root.querySelector('.sc-ctl'); if (ctl) ctl.hidden = true;

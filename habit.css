@@ -597,7 +597,12 @@ html:not(.motion) .sc-plan .p-old .txt::after{transform:scaleX(1)}
   position:absolute;inset:0;border-radius:2px;background:var(--teal);display:block;
   transform:scaleY(0);transform-origin:top center;transition:transform 620ms var(--e-out);
 }
-.beat{position:relative;padding:15px 16px;border-radius:14px;transition:background-color 380ms linear}
+.beat{
+  position:relative;display:block;width:100%;text-align:left;cursor:pointer;
+  padding:15px 16px;border-radius:14px;border:none;background:transparent;
+  transition:background-color 380ms linear;
+}
+.beats li{list-style:none}
 .beat::before{
   content:"";position:absolute;left:-28px;top:22px;width:12px;height:12px;border-radius:50%;
   background:var(--paper-2);border:2px solid var(--line);
@@ -609,13 +614,14 @@ html:not(.motion) .sc-plan .p-old .txt::after{transform:scaleX(1)}
   letter-spacing:-.02em;line-height:1.25;margin-bottom:4px;
   color:var(--ink-soft);transition:color 380ms linear;
 }
-.beat p{margin:0;font-size:16px;line-height:1.45;color:var(--ink-faint);transition:color 380ms linear;max-width:52ch}
+.beat span{display:block;font-family:"Alegreya","PT Serif",Georgia,serif;font-size:16px;line-height:1.45;color:var(--ink-faint);transition:color 380ms linear;max-width:52ch}
 .beat.on{background:var(--panel)}
 .beat.on b{color:var(--ink)}
-.beat.on p{color:var(--ink-soft)}
+.beat.on span{color:var(--ink-soft)}
 html:not(.motion) .beat{background:var(--panel)}
 html:not(.motion) .beat b{color:var(--ink)}
-html:not(.motion) .beat p{color:var(--ink-soft)}
+html:not(.motion) .beat span{color:var(--ink-soft)}
+html:not(.motion) .beat{cursor:default}
 html:not(.motion) .beat::before{border-color:var(--teal);background:var(--teal)}
 html:not(.motion) .rail i{transform:scaleY(1)}
 
