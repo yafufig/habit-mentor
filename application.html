@@ -10,8 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <!-- кадр ночной полосы стоит почти на первом экране: байты кладём в кэш заранее,
-     сам <img> остаётся lazy и рисуется мгновенно, когда доходит до вьюпорта -->
-<link rel="preload" as="image" fetchpriority="low" href="https://images.unsplash.com/photo-1772059409102-86d89782265b?w=1800&q=72&auto=format&fit=crop">
+     сам <img> остаётся lazy и рисуется мгновенно, когда доходит до вьюпорта.
+     Адрес обязан совпадать с адресом в <img> вплоть до параметров — иначе это
+     вторая загрузка, а не подготовка первой. -->
+<link rel="preload" as="image" fetchpriority="low" href="https://images.unsplash.com/photo-1772059409102-86d89782265b?w=1100&q=72&auto=format&fit=crop">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="habit.css">
 <script>
